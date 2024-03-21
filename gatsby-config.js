@@ -39,5 +39,19 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+      {
+        resolve: `gatsby-source-airtable`,
+        options: {
+          authToken: process.env.AIRTABLE_AUTH_TOKEN,
+          baseId: process.env.AIRTABLE_BASE_ID,
+          tables: [
+            {
+              baseId: process.env.AIRTABLE_BASE_ID,
+              tableName: `Pen Pal`,
+              // Optional: configure any mapping or filtering options
+            },
+          ],
+        },
+      },
   ],
 }
